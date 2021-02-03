@@ -34,6 +34,8 @@ app.post('/api/callback', bodyParser(), async (req, res) => {
 
         const user = {};
         user.id = idToken.sub;
+        user.idToken = response.id_token;
+        user.accessToken = response.access_token;
 
         if (idToken.email) user.email = idToken.email;
         if (req.body.user) {
