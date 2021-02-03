@@ -5,6 +5,7 @@ const AppleAuth = require('apple-auth');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const EnvironmentVar = require('./enviornment');
+const PORT = EnvironmentVar.port || 3000;
 
 const config = {
     "client_id": EnvironmentVar.clientId,
@@ -80,6 +81,6 @@ app.get('/refresh', async (req, res) => {
     }
 });
 
-app.listen(80, () => {
+app.listen(PORT, () => {
     console.log("Listening on https://apple.ananay.dev");
 })
